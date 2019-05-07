@@ -102,8 +102,12 @@ let newShirts = runners.filter(runner => runner.donation > 100)
 donations.push(newShirts.length)
 console.log(donations);
 // Problem 3
-// Make the emails into all upper case 
-let allCapsEmails = [];
-let allRunners = runners.map(runner => runner.company_name.toUpperCase())
-allCapsEmails.push(allRunners)
-console.log(allCapsEmails); 
+// Find the average of the donations
+let ticketPriceTotal = [];
+const calc = (acc, donate) => acc + donate;
+runners.forEach(function (runner) {
+    ticketPriceTotal.push(runner.donation)
+})
+ticketPriceTotal = ticketPriceTotal.reduce(calc)
+ticketPriceTotal = ticketPriceTotal / 50
+console.log(ticketPriceTotal);
